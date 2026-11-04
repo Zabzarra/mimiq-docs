@@ -1,0 +1,72 @@
+---
+title: Copy trading
+description: Pick a trader, set the sizing, start copying.
+sidebar:
+  order: 4
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+## Set up
+
+Tap `👤 Set Trader` (`👤 Change Trader` if one is set).
+
+<Steps>
+
+1. **Platform.** Pick where the trader trades. Hyperliquid, Lighter, Lighter RH, RiseX and Arcus can be copied.
+
+   ![Choose the platform to copy a trader from: Hyperliquid, RiseX, Lighter, Lighter (Robinhood Chain), Arcus](../../../assets/screenshots/bot-copy-platform.png)
+
+2. **Trader.** Send the wallet address (`0x…`). On Lighter you can send the account index or the wallet address. If the address has several accounts, pick one.
+3. **Mode.** `Proportional`, `1:1` or `Custom` (your own multiplier, for example `2` or `0.5`).
+
+   ![Choose the copy mode: Proportional (equity ratio), 1:1 or Custom multiplier](../../../assets/screenshots/bot-copy-mode.png)
+
+4. **Max leverage (optional).** A ceiling for this wallet. It only tightens what the venue allows, never loosens it.
+
+   ![The Max Leverage screen with Set a Max Leverage and No cap (venue max)](../../../assets/screenshots/bot-max-leverage.png)
+
+5. **Stop-loss and take-profit (optional).** Applied automatically to every position the wallet opens, as a percentage or a dollar amount.
+
+   ![The Stop Loss question: Set a Stop Loss or No Stop Loss](../../../assets/screenshots/bot-stop-loss.png)
+
+   ![The Take Profit question: Set a Take Profit or No Take Profit](../../../assets/screenshots/bot-take-profit.png)
+
+6. **Current positions.** Copy the trader's open positions now, or only trades from now on. You can deselect single positions.
+
+   ![The trader's current positions with a toggle per position, Copy selected and Only new trades](../../../assets/screenshots/bot-current-positions.png)
+
+
+</Steps>
+
+Then confirm. Copying starts within about 30 seconds.
+
+## Sizing
+
+| Mode | Size |
+|---|---|
+| Proportional | In proportion to your account size |
+| 1:1 | The same size as the trader |
+| Custom | The trader's size times your multiplier |
+
+Trades below 10 USD are skipped (1 USD on RiseX, Hibachi and Extended). A single copy trade above 500,000 USD is rejected.
+
+## Current positions or new trades only
+
+<Aside>
+**Copy current** mirrors the trader's existing book right away, even where the price has moved past their entry, and keeps mirroring everything. **New trades only** copies what the trader does from now on. If the price has moved since the entry, the bot warns you first.
+</Aside>
+
+## Start and stop
+
+`▶️ Start copying` and `⏹ Stop copying` are in the menu. When you stop with open positions, you choose:
+
+| Option | Result |
+|---|---|
+| `🔴 Close all & stop` | Closes every position, then stops |
+| `🎯 Choose which to close` | Opens your positions to pick |
+| `⏸ Keep positions & stop` | Stops copying, leaves the positions open |
+
+<Aside type="note">
+Change mode, leverage cap, notifications and names later under [Settings](/guide/main-menu/#settings).
+</Aside>
