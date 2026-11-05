@@ -1,25 +1,25 @@
 ---
-title: Copy Trading or Delta-Neutral?
-description: What each mode does, what it needs, and how wallets switch between them.
+title: Which mode?
+description: What each of the four modes does, what it needs, and how wallets switch between them.
 ---
 
 import { Aside } from '@astrojs/starlight/components';
 
-| | Copy trading | Delta-Neutral |
-|---|---|---|
-| **What it does** | Mirrors a trader's position changes | Long on one venue, short the same token on another |
-| **Return comes from** | The trader's performance | The funding-rate spread |
-| **You choose** | A trader, and 1:1 or scaled sizing | A pair, or a Smart Plan that runs it for you |
-| **Needs** | 1 venue | 2 venues |
-| **Safety** | Stop-loss and take-profit | Stop-loss, take-profit and funding auto-close |
-| **Main risk** | The trader's losses | Funding turning against you, a leg being liquidated |
+| | Copy trading | Delta-Neutral | Pair Trade | Trade |
+|---|---|---|---|---|
+| **What it does** | Mirrors a trader's position changes | Long on one venue, short the same token on another | Several long and short legs, opened and closed together | Your own orders, one at a time |
+| **Return comes from** | The trader's performance | The funding-rate spread | The price move between the long and the short side | Your own trades |
+| **You choose** | A trader, and 1:1 or scaled sizing | A pair, or a Smart Plan that runs it for you | The legs, a long/short ratio and an optional rebalance | Venue, token, side, size and order type |
+| **Needs** | 1 venue | 2 venues | 1 venue or more | 1 venue |
+| **Safety** | Stop-loss and take-profit | Stop-loss, take-profit, total TP/SL and funding auto-close | Stop-loss and take-profit per leg or for the whole trade | TP/SL levels |
+| **Main risk** | The trader's losses | Funding turning against you, a leg being liquidated | The two sides moving against you | Your own trades |
 
 ## Wallets
 
-A **wallet** is your trading profile: its own mode, trader, settings and linked venues. Create more with `➕ New Wallet`. **One wallet runs one mode at a time**, so use two wallets to run both.
+A **wallet** is your trading profile: its own mode, settings and linked venues. Create more with `➕ New Wallet`. **One wallet runs one mode at a time**, so use several wallets to run several modes.
 
-Switch with `🔁 Switch to DN` or `🔁 Switch to Copy`. It takes effect within about 30 seconds.
+Change the mode with `🔁 Switch mode`. It takes effect within about 30 seconds.
 
 <Aside type="caution" title="Before you switch">
-The copy engine stops managing the wallet. Close or manage open copy positions yourself first, because they are not watched in Delta-Neutral mode. The same applies the other way round.
+The old mode stops managing the wallet. Close or manage its open positions and orders yourself first, because the new mode does not watch them. The bot tells you what still blocks a switch, for example an open pair or a running copy.
 </Aside>

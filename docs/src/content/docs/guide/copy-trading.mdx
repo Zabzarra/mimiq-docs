@@ -32,7 +32,9 @@ Tap `👤 Set Trader` (`👤 Change Trader` if one is set).
 
    ![The Take Profit question: Set a Take Profit or No Take Profit](../../../assets/screenshots/bot-take-profit.png)
 
-6. **Current positions.** Copy the trader's open positions now, or only trades from now on. You can deselect single positions.
+6. **Thin book.** What happens when the order book cannot fill a copy trade inside your max slippage: `Skip` (the trade is not executed and you get a message; the next move of the trader syncs again) or `Fill in slices` (filled step by step until you are in sync with the trader).
+
+7. **Current positions.** Copy the trader's open positions now, or only trades from now on. You can deselect single positions.
 
    ![The trader's current positions with a toggle per position, Copy selected and Only new trades](../../../assets/screenshots/bot-current-positions.png)
 
@@ -40,6 +42,8 @@ Tap `👤 Set Trader` (`👤 Change Trader` if one is set).
 </Steps>
 
 Then confirm. Copying starts within about 30 seconds.
+
+Market orders never fill further from the price than your **max slippage** (default 2.0%, under `⚙️ Settings`).
 
 ## Sizing
 
@@ -67,6 +71,28 @@ Trades below 10 USD are skipped (1 USD on RiseX, Hibachi and Extended). A single
 | `🎯 Choose which to close` | Opens your positions to pick |
 | `⏸ Keep positions & stop` | Stops copying, leaves the positions open |
 
+## Limit orders
+
+By default Mimiq copies position changes with market orders. Switch `Market | Limit` in the menu (or `📌 Limit Orders` under Settings) to **Limit**, and the trader's resting limit orders are mirrored on your venue as well. This works for traders on Hyperliquid, Arcus and RiseX, on every target venue.
+
+![The copy menu with Limit mode on: stop loss, chase and early-fill line, and the Market and Limit buttons](../../../assets/screenshots/bot-copy-menu-limit.png)
+
+`⚙️ Limit settings`:
+
+![The Limit Orders settings: orders, stop loss, early fill, cross policy, chase wait and chase, each with its button](../../../assets/screenshots/bot-limit-settings.png)
+
+| Setting | Meaning |
+|---|---|
+| Stop loss | Distance from your entry. Required: without it the trader's opening orders are not copied |
+| Early fill | Your order may fill before the trader's: keep your position, or match the trader when the trader cancels or after a time you choose |
+| Chase wait | How long your order may keep resting after the trader's filled (0 = at once) |
+| Chase | What fills the size your order missed: `Market`, `Maker, then market` (a post-only order follows the best price for the patience you choose, then the rest goes to market) or `Maker only` |
+| Cross policy | An order that would cross the book: `Limit IOC` (fill at the trader's price or better), `Skip` or `Taker` |
+
+<Aside type="caution">
+Mirrored orders rest on your venue with your margin and can fill at any time, also while you are offline. This includes the trader's orders that open or add to a position. Your stop loss protects the position.
+</Aside>
+
 <Aside type="note">
-Change mode, leverage cap, notifications and names later under [Settings](/guide/main-menu/#settings).
+Change the copy mode, limit orders, max slippage, thin book, notifications and names later under [Settings](/guide/main-menu/#settings).
 </Aside>

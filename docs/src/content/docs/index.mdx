@@ -1,10 +1,10 @@
 ---
 title: What is Mimiq
-description: Copy trading and Delta-Neutral strategies across 11 perp DEXs. Non-custodial. Closed beta, invite-only.
+description: Copy trading, Delta-Neutral, Pair Trades and your own orders across 11 perp DEXs. Non-custodial. Closed beta, invite-only.
 template: splash
 hero:
   title: Any trader's alpha. Any DEX's fees.
-  tagline: Copy trading and Delta-Neutral strategies across 11 perp DEXs. Non-custodial. Closed beta, invite-only.
+  tagline: Copy trading, Delta-Neutral, Pair Trades and your own orders across 11 perp DEXs. Non-custodial. Closed beta, invite-only.
   image:
     file: ../../assets/mimiq-mark.svg
   actions:
@@ -21,15 +21,24 @@ hero:
 import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 import VenueGrid from '../../components/VenueGrid.astro';
 
-## Two ways to trade
+## Four ways to trade
 
 <CardGrid>
   <Card title="Copy trading" icon="rocket">
     Mirror a trader's positions on the venue you choose. Sized 1:1, proportional or with your own multiplier.
   </Card>
   <Card title="Delta-Neutral" icon="random">
-    Long on one venue, short the same token on another. You earn the funding-rate spread.
+    Long on one venue, short the same token on another, or hold the token on spot against a perp short. You earn the funding-rate spread.
   </Card>
+  <Card title="Pair Trade" icon="list-format">
+    Several legs at once: long or short, any token, any venue. With a long/short ratio and an optional rebalance.
+  </Card>
+  <Card title="Trade" icon="pencil">
+    Place and manage your own orders on any linked venue: market, limit, TWAP, chase or scale, with TP/SL levels.
+  </Card>
+</CardGrid>
+
+<CardGrid>
   <Card title="Non-custodial" icon="approve-check">
     Mimiq never holds your funds. You connect API keys that can trade, not withdraw.
   </Card>
@@ -48,7 +57,7 @@ Link a venue with its API credentials. Five of them can also be a copy source. W
 
 <CardGrid>
   <LinkCard title="Quickstart" description="From invite code to your first position." href="/start/quickstart/" />
-  <LinkCard title="Copy Trading or Delta-Neutral?" description="What each mode does and what it needs." href="/start/which-mode/" />
+  <LinkCard title="Which mode?" description="What each of the four modes does and what it needs." href="/start/which-mode/" />
   <LinkCard title="Venues and fees" description="What each venue can do and what it charges." href="/venues/" />
   <LinkCard title="Security" description="How your keys are protected." href="/security/" />
 </CardGrid>

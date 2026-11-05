@@ -6,7 +6,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Mimiq Docs',
-      description: 'Copy trading and Delta-Neutral strategies across 11 perp DEXs. Non-custodial. Closed beta, invite-only.',
+      description: 'Copy trading, Delta-Neutral, Pair Trades and your own orders across 11 perp DEXs. Non-custodial. Closed beta, invite-only.',
       logo: { src: './src/assets/mimiq-mark.svg', alt: 'Mimiq' },
       favicon: '/favicon.svg',
       customCss: ['./src/styles/custom.css'],
@@ -26,7 +26,7 @@ export default defineConfig({
         { label: 'Start', items: [
           { label: 'What is Mimiq', link: '/' },
           { label: 'Quickstart', link: '/start/quickstart/' },
-          { label: 'Copy Trading or Delta-Neutral?', link: '/start/which-mode/' },
+          { label: 'Which mode?', link: '/start/which-mode/' },
         ]},
         { label: 'Using the bot', autogenerate: { directory: 'guide' } },
         { label: 'Venues and fees', link: '/venues/' },

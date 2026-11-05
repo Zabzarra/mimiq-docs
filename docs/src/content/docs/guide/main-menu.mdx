@@ -7,33 +7,63 @@ sidebar:
 
 import { Aside } from '@astrojs/starlight/components';
 
-Open the bot and send `/start`. The menu shows the status of the selected wallet and the buttons for its mode.
+Open the bot and send `/start`. The menu shows the status of the selected wallet and the buttons for its mode. Every mode has `📊 Positions`, `📋 Orders`, `🔗 Link platform`, `➕ New Wallet`, `🔁 Switch mode`, `⚙️ Settings`, `🔄 Refresh`, `❓ Help` and `📖 Docs`.
+
+Without a wallet yet, the menu offers the four modes: `🔥 Copy Trading`, `⚖️ Delta Neutral`, `🧺 Pair Trade` and `💱 Trade`. [Which mode?](/start/which-mode/) compares them.
+
+![The welcome menu with the four modes Copy Trading, Delta Neutral, Pair Trade and Trade](../../../assets/screenshots/bot-welcome-modes.png)
 
 ## Copy mode
 
-![The copy-mode menu: wallet and trader with equity and open position, Bot running, buttons for Stop copying, Change Trader, Watch Traders, Link platform, Positions, New Wallet, Stats, Switch to DN, Settings, Refresh, Help](../../../assets/screenshots/bot-copy-dashboard.png)
+![The copy-mode menu: wallet and trader with equity and open position, the limit mode line, and the buttons Stop copying, Market and Limit, Limit settings, Change Trader, Watch Traders, Link platform, Positions, New Wallet, Stats, Switch mode, Orders, Settings, Refresh, Help, Docs](../../../assets/screenshots/bot-copy-menu-limit.png)
 
-More on the buttons: [Copy trading](/guide/copy-trading/), [Watch traders](/guide/watch-traders/), [Link a venue](/guide/link-venue/).
+`👤 Set Trader` (`👤 Change Trader` once one is set) and `▶️ Start copying` / `⏹ Stop copying` run the copy. Below them, `Market | Limit` chooses whether the trader's resting limit orders are mirrored too. Also here: `👁 Watch Traders` and `📊 Stats`.
+
+More: [Copy trading](/guide/copy-trading/), [Watch traders](/guide/watch-traders/), [Link a venue](/guide/link-venue/).
 
 ## Delta-Neutral mode
 
-![The Delta-Neutral menu: wallet, mode and balances per venue, with buttons for New pair, Smart DN, Watch Traders, Positions, Link platform, New Wallet, Stats, Switch to Copy, Settings, Refresh, Help](../../../assets/screenshots/bot-dn-dashboard.png)
+![The Delta-Neutral menu: wallet, mode and balances per venue, with buttons for New DN pair, Smart DN, Watch Traders, Positions, Link platform, New Wallet, Stats, Switch mode, Orders, Settings, Refresh, Help, Docs](../../../assets/screenshots/bot-dn-menu.png)
 
-`➕ New pair` and `🤖 Smart DN` replace the trader buttons. `📊 Positions` shows your open pairs, and `🔁 Switch to Copy` changes the mode back. See [Delta-Neutral](/guide/delta-neutral/) and [Smart DN plans](/guide/smart-dn/).
+`➕ New DN pair` and `🤖 Smart DN` replace the trader buttons. `📊 Positions` shows your open positions and your pairs. See [Delta-Neutral](/guide/delta-neutral/) and [Smart DN plans](/guide/smart-dn/).
+
+## Pair Trade mode
+
+![The Pair Trade menu: wallet, mode and balances, with New Pair Trade, My Pair Trades, Positions, Orders, Link platform, New Wallet, Stats, Switch mode, Settings](../../../assets/screenshots/bot-pair-trade-menu.png)
+
+`➕ New Pair Trade` builds a new trade, `🧺 My Pair Trades` lists yours. See [Pair Trade](/guide/pair-trade/).
+
+## Trade mode
+
+![The Trade home screen: wallet, mode and balances, with Quick order, New order, Positions, Orders, History, Link platform, New Wallet, Switch mode, Settings](../../../assets/screenshots/bot-trade-home.png)
+
+`⚡ Quick order` and `➕ New order` open the order ticket, `🕘 History` lists your past orders. See [Trade](/guide/trade/).
+
+## Orders
+
+`📋 Orders` (or `/orders`) lists every open order of the wallet, grouped by mode: resting limit orders and stop levels on the venues, Trade orders and TWAPs, Pair Trade legs waiting for a fill, queued Delta-Neutral entries and mirrored limit orders. Each order on a venue has its own cancel button, and `Cancel all` asks first. If a venue cannot be read, the screen says so instead of showing no orders.
 
 ## Settings
 
 `⚙️ Settings` opens:
 
+![The settings screen: Copy Mode, Limit Orders, Max slippage, Thin book, Notifications, Change API Key, Switch Active Venue, New Wallet, Toggle Wallets, Rename Wallet, Rename Trader](../../../assets/screenshots/bot-settings.png)
+
 | Button | What it does |
 |---|---|
-| Copy mode | `📊 Proportional (equity ratio)`, `🟰 1:1` or `✏️ Custom multiplier` |
+| `⚖️ Copy Mode` | `📊 Proportional (equity ratio)`, `🟰 1:1` or `✏️ Custom multiplier` |
+| `📌 Limit Orders` | Mirror the copied trader's resting limit orders, see [Copy trading](/guide/copy-trading/#limit-orders) |
+| `🛡 Max slippage` | How far from the price a market order may fill: 0.3, 0.5, 1.0, 1.5 or 2.0% (default 2.0%) |
+| `📚 Thin book` | When the order book cannot fill a copy trade inside your max slippage: `Skip` or `Fill in slices` |
 | `🔔 Notifications` | Toggle **Fills**, **Closes** and **Errors** |
 | `🔑 Change API Key` | Replace the credentials of a linked venue |
 | `🔀 Switch Active Venue` | Choose which linked venue the wallet trades on |
+| `➕ New Wallet` | Create another wallet |
+| `👛 Toggle Wallets` | Choose which wallets show in the menu. Hidden wallets keep running |
 | `✏️ Rename Wallet` | Rename the wallet |
 | `✏️ Rename Trader` | Rename the copied trader |
-| `⚙️ Leverage` | Set a max-leverage cap |
+
+A Trade wallet has its own settings: default leverage, default size, a confirmation for small orders, max slippage and the quick-order defaults.
 
 ## Stats and history
 
@@ -48,6 +78,7 @@ More on the buttons: [Copy trading](/guide/copy-trading/), [Watch traders](/guid
 | `/start` | Main menu |
 | `/setup` | Link a platform |
 | `/positions` | Open positions |
+| `/orders` | Open orders |
 | `/history` | Recent trades |
 | `/stats` | Volume, fees, PnL, funding |
 | `/status` | Wallet and trader status |

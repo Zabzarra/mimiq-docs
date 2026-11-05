@@ -19,11 +19,12 @@ Using Mimiq costs **1 bp (0.01%) of trade value** on the venues marked below. Th
 | Hibachi | 4.5 bp | 0 bp |  |  |
 | Ondo Finance | 2.5 bp | 1.0 bp | +1 bp | with the current 50% promotion (no end date announced); base 5.0 / 2.0 |
 | Perpl | 3.45 bp | 0.45 bp | +1 bp |  |
-| Veranta | 4.5 bp | 1.0 bp | +1 bp | crypto majors; spread and holding cost extra; no commission on real-world assets while in growth mode |
 | Extended | 2.5 bp | 0 bp | +1 bp | maker rebates possible |
 | QFEX | from 5.0 | from 2.0 |  | by asset class (equities are higher) |
-| Propr | none | none |  | no trading fees; a paid challenge instead |
+| Propr | 4.5 bp | 1.5 bp |  | Hyperliquid's standard fees, passed through at cost; plus a one-time evaluation fee |
 
 </div>
+
+**Spot (basis trades).** Spot trades on Hyperliquid, Lighter and Lighter RH have their own fee schedule at the venue. Mimiq's 1 bp applies; on Hyperliquid only to spot sales, not to purchases.
 
 Rates are the entry level (lowest volume tier) of each venue, checked 8 Oct 2026. They fall with volume and change over time. Verify the current rates at each venue before you trade.
