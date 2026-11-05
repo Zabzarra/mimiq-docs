@@ -14,7 +14,7 @@ Using Mimiq costs **1 bp (0.01%) of trade value** on the venues marked below. Th
 | Hyperliquid | 4.5 bp | 1.5 bp | +1 bp |  |
 | Lighter | 2.8 bp | 0.4 bp | +1 bp | Premium account (Mimiq links Lighter accounts as Premium) |
 | RiseX | 3.0 bp | 1.0 bp | +1 bp |  |
-| Arcus | 2.25 bp | 0 bp |  |  |
+| Arcus | 4.5 bp | 1.5 bp |  | standard rates since 23 Oct 2026 (the beta discount ended) |
 | Lighter (Robinhood Chain) | 3.5 bp | 1.2 bp | +1 bp | Premium account, under 1M USD volume |
 | Hibachi | 4.5 bp | 0 bp |  |  |
 | Ondo Finance | 2.5 bp | 1.0 bp | +1 bp | with the current 50% promotion (no end date announced); base 5.0 / 2.0 |
