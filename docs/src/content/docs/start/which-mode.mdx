@@ -4,15 +4,9 @@ description: What each of the four modes does, what it needs, and how wallets sw
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import ModeCards from '../../../components/ModeCards.astro';
 
-| | Copy trading | Delta-Neutral | Pair Trade | Trade |
-|---|---|---|---|---|
-| **What it does** | Mirrors a trader's position changes | Long on one venue, short the same token on another | Several long and short legs, opened and closed together | Your own orders, one at a time |
-| **Return comes from** | The trader's performance | The funding-rate spread | The price move between the long and the short side | Your own trades |
-| **You choose** | A trader, and 1:1 or scaled sizing | A pair, or a Smart Plan that runs it for you | The legs, a long/short ratio and an optional rebalance | Venue, token, side, size and order type |
-| **Needs** | 1 venue | 2 venues | 1 venue or more | 1 venue |
-| **Safety** | Stop-loss and take-profit | Stop-loss, take-profit, total TP/SL and funding auto-close | Stop-loss and take-profit per leg or for the whole trade | TP/SL levels |
-| **Main risk** | The trader's losses | Funding turning against you, a leg being liquidated | The two sides moving against you | Your own trades |
+<ModeCards />
 
 ## Wallets
 

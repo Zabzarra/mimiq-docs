@@ -108,8 +108,8 @@
   "id": "propr",
   "name": "Propr",
   "role": "exec",
-  "logo": "/venues/propr.svg",
-  "h": 26,
+  "logo": "/venues/propr-full.png",
+  "h": 22,
   "crop": null,
   "pill": null,
   "tag": null

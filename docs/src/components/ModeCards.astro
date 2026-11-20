@@ -1,0 +1,74 @@
+---
+// The four modes side by side (Claude Design "Which mode.html", A217): one card per mode with what it does, what it needs,
+// the choices, the safety, where the return comes from and the main risk; the footer links to the mode's guide.
+const modes = [
+  {
+    name: 'Copy Trading', href: '/guide/copy-trading/', needs: '1 venue', does: 'Mirrors a trader’s position',
+    choose: 'A trader, and 1:1 or scaled sizing', safety: 'Stop-loss and take-profit',
+    ret: 'The trader’s performance', risk: 'The trader’s losses',
+  },
+  {
+    name: 'Delta-Neutral', href: '/guide/delta-neutral/', needs: '2 venues', does: 'Long on Venue A, Short on Venue B',
+    choose: 'A pair, or a Smart Plan that runs it for you', safety: 'Stop-loss, take-profit, total TP/SL and funding auto-close',
+    ret: 'The funding-rate spread', risk: 'Funding turning against you, a leg being liquidated',
+  },
+  {
+    name: 'Pair Trade', href: '/guide/pair-trade/', needs: '1 venue or more', does: 'Set up a basket of long and short legs',
+    choose: 'The legs, a long/short ratio and an optional rebalance', safety: 'Stop-loss and take-profit per leg or for the whole trade',
+    ret: 'The price move between the long and the short side', risk: 'The two sides moving against you',
+  },
+  {
+    name: 'Trade', href: '/guide/trade/', needs: '1 venue', does: 'Your own orders, one at a time',
+    choose: 'Venue, token, side, size and order type', safety: 'TP/SL levels',
+    ret: 'Your own trades', risk: 'Your own trades',
+  },
+];
+---
+
+<div class="mq-modes not-content">
+  {modes.map((m) => (
+    <section class="mq-mode">
+      <div class="mq-mode-top">
+        <div class="mq-mode-head">
+          <a class="mq-mode-name" href={m.href}>{m.name}</a>
+          <span class="mq-mode-needs">{m.needs}</span>
+        </div>
+        <p class="mq-mode-does">{m.does}</p>
+      </div>
+      <dl>
+        <dt>You choose</dt><dd>{m.choose}</dd>
+        <dt>Safety</dt><dd>{m.safety}</dd>
+        <dt>Return comes from</dt><dd>{m.ret}</dd>
+        <dt class="risk">Main risk</dt><dd class="risk">{m.risk}</dd>
+      </dl>
+      <a class="mq-mode-more" href={m.href}><span>Jump to the Guide</span><i>→</i></a>
+    </section>
+  ))}
+</div>
+
+<style>
+  .mq-modes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 14px; margin: 1.5rem 0 2rem; }
+  .mq-mode { background: var(--mq-bg-1); border: 1px solid var(--mq-line-strong); border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; }
+  .mq-mode-top { padding: 20px 22px 18px; border-bottom: 1px solid var(--mq-line); }
+  .mq-mode-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .mq-modes a.mq-mode-name { font-family: var(--sl-font-mono); font-size: 12px; letter-spacing: 0.14em; color: var(--mq-cyan); text-transform: uppercase; text-decoration: none; }
+  .mq-modes a.mq-mode-name:hover { color: var(--mq-cyan-soft); }
+  .mq-mode-needs { font-family: var(--sl-font-mono); font-size: 11px; color: var(--mq-fg-dim); border: 1px solid var(--mq-line-strong); border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
+  .mq-mode-does { font-size: 19px; font-weight: 500; line-height: 1.35; margin: 0; color: var(--mq-fg); text-wrap: pretty; }
+  .mq-mode dl { margin: 0; padding: 6px 22px 8px; display: grid; grid-template-columns: 118px minmax(0, 1fr); flex: 1; align-content: start; }
+  .mq-mode dt, .mq-mode dd { padding: 11px 0; border-bottom: 1px solid var(--mq-line); font-size: 14.5px; line-height: 1.45; }
+  .mq-mode dt { color: var(--mq-fg-mute); font-size: 13px; padding-right: 12px; font-weight: 400; }
+  .mq-mode dd { margin: 0; color: var(--mq-fg-dim); text-wrap: pretty; }
+  .mq-mode dl > :nth-last-child(-n + 2) { border-bottom: 0; }
+  .mq-mode dd.risk { color: var(--mq-fg); }
+  .mq-mode dt.risk { color: #ff8a8a; }
+  .mq-modes a.mq-mode-more { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 22px; border-top: 1px solid var(--mq-line);
+    font-size: 14px; font-weight: 500; color: var(--mq-cyan); text-decoration: none; transition: background 0.15s; }
+  .mq-modes a.mq-mode-more i { font-style: normal; transition: transform 0.15s; }
+  .mq-modes a.mq-mode-more:hover { background: var(--mq-bg-2); color: var(--mq-cyan-soft); }
+  .mq-modes a.mq-mode-more:hover i { transform: translateX(3px); }
+  @media (max-width: 560px) {
+    .mq-mode dl { grid-template-columns: 1fr; }
+    .mq-mode dt { padding-bottom: 0; border-bottom: 0; }
+  }
+</style>

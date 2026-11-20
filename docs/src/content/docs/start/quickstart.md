@@ -11,7 +11,7 @@ description: From invite code to your first position.
 3. **Approve the fee once.** On Hyperliquid, Lighter, Lighter RH and RiseX the bot sends a signing link. You sign with your wallet.
 4. **Pick a mode.** [Copy trading](/guide/copy-trading/) needs one venue, [Delta-Neutral](/guide/delta-neutral/) needs two. [Pair Trade](/guide/pair-trade/) and [Trade](/guide/trade/) work with one venue or more. [Which mode?](/start/which-mode/) compares them.
 
-   ![The welcome menu with the four modes Copy Trading, Delta Neutral, Pair Trade and Trade, plus Link platform, Watch Traders, Refresh, Help and Docs](../../../assets/screenshots/bot-welcome-modes.png)
+   ![The welcome menu with the four modes Copy Trading, Delta Neutral, Pair Trade and Trade, plus Add venue, Watch Traders, Refresh, Help and Docs](../../../assets/screenshots/bot-welcome-modes.png)
 
 5. **Start.** In Copy and Delta-Neutral the bot opens and closes positions for you. In Pair Trade and Trade you place the orders, and the bot executes and watches them.
 
