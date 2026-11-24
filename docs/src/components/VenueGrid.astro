@@ -7,7 +7,7 @@ const href: Record<string, string> = {
   risex: 'https://www.rise.trade/invite/mimiq', arcus: 'https://app.arcus.xyz/ref/MIMIQ2',
   lighter_rh: 'https://robinhoodchain.lighter.xyz/?referral=MIMIQ&source=none', hibachi: 'https://hibachi.xyz/r/mimiq',
   ondo: 'https://app.ondoperps.xyz/?ref=M14GSK', perpl: 'https://app.perpl.xyz', extended: 'https://app.extended.exchange',
-  qfex: 'https://www.qfex.com', propr: 'https://propr.xyz',
+  qfex: 'https://www.qfex.com', propr: 'https://propr.xyz', txflow: 'https://app.txflow.com',
 };
 
 // Logo sizes come from the main site's venues.js (measured so that all logos look equally big).
@@ -30,7 +30,7 @@ const px = (v: any) => Math.round((v.h ?? 28) * 0.9);
       ) : (
         <span class="mq-logo"><span class="mq-textlogo">{v.name}</span></span>
       )}
-      <span class="mq-name">{v.tag ?? (v.role === 'both' ? 'Source + execution' : 'Execution')}</span>
+      <span class="mq-name">{v.tag ?? (v.role === 'both' ? 'Source + execution' : v.role === 'source' ? 'Copy source' : 'Execution')}</span>
     </a>
   ))}
 </div>
