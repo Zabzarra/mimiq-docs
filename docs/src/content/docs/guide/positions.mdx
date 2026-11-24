@@ -22,6 +22,15 @@ sidebar:
 
 ## Stop-loss and take-profit
 
-In a position, `🛑 Set SL` and `🎯 Set TP` place a stop-loss or take-profit on the venue. `❌ SL off` and `❌ TP off` remove them. A stop set here lives on the venue as a native order.
+In a position, `🎯 SL/TP levels` opens the TP/SL screen. It lists every stop that rests on the venue for this position: its trigger price, how much of the position it closes, and how far it is from the entry in % and $. Each stop has its own button.
+
+![The TP/SL screen of an ETH long on Hyperliquid: two take-profits at 3,750 and 4,000 closing 50 % each, one stop-loss at 3,250 for the whole position, a button per stop, Add TP and Add SL](../../../assets/screenshots/bot-tpsl-overview.png)
+
+- `🎯 Add TP` / `🛑 Add SL` sets a new stop. You choose how to give it: in % from the entry, as a $ gain or loss, or as a price. Then you choose how much of the position it closes (25 %, 50 % or 100 %, only what is still free).
+- Tap a stop to change its price (and its size, where a venue takes several levels), or `🗑 Remove` it (asked once more before it is removed).
+
+![Setting a take-profit: how do you want to set the TP, with the buttons % from entry, $ amount and Mark price](../../../assets/screenshots/bot-tpsl-set.png)
+
+A stop set here lives on the venue as a native order. Some venues keep only one TP and one SL per position: there the buttons read `🎯 Set TP` / `🛑 Set SL` and only show while that stop is missing.
 
 To protect every copy position automatically, set SL/TP in the [copy setup](/guide/copy-trading/). For Delta-Neutral pairs, see [Delta-Neutral](/guide/delta-neutral/), for Pair Trades [Pair Trade](/guide/pair-trade/).
